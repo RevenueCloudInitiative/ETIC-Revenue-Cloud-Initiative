@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ExpressionSetDefinition xmlns="http://soap.sforce.com/2006/04/metadata">
-    <contextDefinitions>extSalesTransactionContext</contextDefinitions>
+    <contextDefinitions>Apex_SalesTransactionContext</contextDefinitions>
     <executionMode>Cloud</executionMode>
     <executionScale>Low</executionScale>
     <interfaceSourceType>DiscoveryProcedure</interfaceSourceType>
@@ -17,7 +17,7 @@
         <processType>PricingDiscovery</processType>
         <rank>1</rank>
         <shouldShowExplExternally>false</shouldShowExplExternally>
-        <startDate>2023-10-24T19:56:40.000Z</startDate>
+        <startDate>2026-09-03T19:56:40.000Z</startDate>
         <status>Inactive</status>
         <steps>
             <actionType>AssetDiscovery</actionType>
@@ -66,6 +66,13 @@
                 </parameters>
                 <parameters>
                     <input>true</input>
+                    <name>LookUpId</name>
+                    <output>false</output>
+                    <type>Literal</type>
+                    <value>0lDjV0000001S3tUAE</value>
+                </parameters>
+                <parameters>
+                    <input>true</input>
                     <name>LookUpApiName</name>
                     <output>false</output>
                     <type>Literal</type>
@@ -98,13 +105,6 @@
                     <output>true</output>
                     <type>Parameter</type>
                     <value>ContributorListPrice</value>
-                </parameters>
-                <parameters>
-                    <input>true</input>
-                    <name>LookUpId</name>
-                    <output>false</output>
-                    <type>Literal</type>
-                    <value>0lDjV0000001S3tUAE</value>
                 </parameters>
             </customElement>
             <description>Asset Discovery</description>
@@ -179,6 +179,13 @@
                 </parameters>
                 <parameters>
                     <input>true</input>
+                    <name>LookUpId</name>
+                    <output>false</output>
+                    <type>Literal</type>
+                    <value>0lDjV0000000TmwUAE</value>
+                </parameters>
+                <parameters>
+                    <input>true</input>
                     <name>LookUpApiName</name>
                     <output>false</output>
                     <type>Literal</type>
@@ -232,13 +239,6 @@
                     <output>true</output>
                     <type>Parameter</type>
                     <value>ContributorPriceDetail</value>
-                </parameters>
-                <parameters>
-                    <input>true</input>
-                    <name>LookUpId</name>
-                    <output>false</output>
-                    <type>Literal</type>
-                    <value>0lDjV0000000TmwUAE</value>
                 </parameters>
             </customElement>
             <description>Fetch Pricing Rules</description>

@@ -1,12 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ExpressionSetDefinition xmlns="http://soap.sforce.com/2006/04/metadata">
-    <contextDefinitions>extSalesTransactionContext</contextDefinitions>
+    <contextDefinitions>Apex_SalesTransactionContext</contextDefinitions>
     <executionMode>Cloud</executionMode>
     <executionScale>Low</executionScale>
     <interfaceSourceType>PricingProcedure</interfaceSourceType>
     <label>Revenue Management Default Pricing Procedure Auto</label>
     <processType>DefaultPricing</processType>
     <template>false</template>
+    <usageSubtype>RevenueCloud</usageSubtype>
     <versions>
         <fullName>Rev_Mgmt_Default_Pricing_Procedure_Auto_V1</fullName>
         <decimalScale>2</decimalScale>
@@ -17,8 +18,8 @@
         <processType>DefaultPricing</processType>
         <rank>1</rank>
         <shouldShowExplExternally>false</shouldShowExplExternally>
-        <startDate>2023-10-24T19:56:40.000Z</startDate>
-        <status>Inactive</status>
+        <startDate>2026-09-03T19:56:40.000Z</startDate>
+        <status>Active</status>
         <steps>
             <actionType>PriceRevision</actionType>
             <customElement>
@@ -94,6 +95,13 @@
                 </parameters>
                 <parameters>
                     <input>true</input>
+                    <name>LookUpId</name>
+                    <output>false</output>
+                    <type>Literal</type>
+                    <value>0lDjV0000000Tn0UAE</value>
+                </parameters>
+                <parameters>
+                    <input>true</input>
                     <name>LookUpApiName</name>
                     <output>false</output>
                     <type>Literal</type>
@@ -102,6 +110,13 @@
                 <parameters>
                     <input>true</input>
                     <name>HideWaterfall</name>
+                    <output>false</output>
+                    <type>Literal</type>
+                    <value>false</value>
+                </parameters>
+                <parameters>
+                    <input>true</input>
+                    <name>IsCompoundUpliftEnabled</name>
                     <output>false</output>
                     <type>Literal</type>
                     <value>false</value>
@@ -147,13 +162,6 @@
                     <output>true</output>
                     <type>Parameter</type>
                     <value>Subtotal</value>
-                </parameters>
-                <parameters>
-                    <input>true</input>
-                    <name>LookUpId</name>
-                    <output>false</output>
-                    <type>Literal</type>
-                    <value>0lDjV0000000Tn0UAE</value>
                 </parameters>
             </customElement>
             <description>Price Revision</description>
@@ -561,6 +569,13 @@
                 </parameters>
                 <parameters>
                     <input>true</input>
+                    <name>LookUpId</name>
+                    <output>false</output>
+                    <type>Literal</type>
+                    <value>0lDjV0000000TmxUAE</value>
+                </parameters>
+                <parameters>
+                    <input>true</input>
                     <name>LookUpApiName</name>
                     <output>false</output>
                     <type>Literal</type>
@@ -635,13 +650,6 @@
                     <output>true</output>
                     <type>Parameter</type>
                     <value>IsContracted</value>
-                </parameters>
-                <parameters>
-                    <input>true</input>
-                    <name>LookUpId</name>
-                    <output>false</output>
-                    <type>Literal</type>
-                    <value>0lDjV0000000TmxUAE</value>
                 </parameters>
             </customElement>
             <description>List Price</description>
@@ -1099,6 +1107,13 @@
                 </parameters>
                 <parameters>
                     <input>true</input>
+                    <name>LookUpId</name>
+                    <output>false</output>
+                    <type>Literal</type>
+                    <value>0lDjV0000000TmrUAE</value>
+                </parameters>
+                <parameters>
+                    <input>true</input>
                     <name>LookUpApiName</name>
                     <output>false</output>
                     <type>Literal</type>
@@ -1160,13 +1175,6 @@
                     <type>Parameter</type>
                     <value>IsContracted</value>
                 </parameters>
-                <parameters>
-                    <input>true</input>
-                    <name>LookUpId</name>
-                    <output>false</output>
-                    <type>Literal</type>
-                    <value>0lDjV0000000TmrUAE</value>
-                </parameters>
             </customElement>
             <description>Attribute-Based Price</description>
             <hasNestedExplainability>false</hasNestedExplainability>
@@ -1217,6 +1225,13 @@
                     <output>false</output>
                     <type>Parameter</type>
                     <value>EffectiveDate</value>
+                </parameters>
+                <parameters>
+                    <input>true</input>
+                    <name>CurrencyIsoCode</name>
+                    <output>false</output>
+                    <type>Parameter</type>
+                    <value>CurrencyIsoCode</value>
                 </parameters>
                 <parameters>
                     <input>true</input>
@@ -1276,6 +1291,13 @@
                 </parameters>
                 <parameters>
                     <input>true</input>
+                    <name>LookUpId</name>
+                    <output>false</output>
+                    <type>Literal</type>
+                    <value>0lDjV0000000TmrUAE</value>
+                </parameters>
+                <parameters>
+                    <input>true</input>
                     <name>LookUpApiName</name>
                     <output>false</output>
                     <type>Literal</type>
@@ -1330,20 +1352,13 @@
                     <type>Parameter</type>
                     <value>ItemNetTotalPrice</value>
                 </parameters>
-                <parameters>
-                    <input>true</input>
-                    <name>LookUpId</name>
-                    <output>false</output>
-                    <type>Literal</type>
-                    <value>0lDjV0000000TmrUAE</value>
-                </parameters>
             </customElement>
             <description>Attribute-Based Price</description>
             <hasNestedExplainability>false</hasNestedExplainability>
             <label>Calculate attribute-based prices for lines without contract pricing</label>
             <name>Calculateattributebasedpricesforlineswithoutcontractpricing</name>
             <parentStep>Setattributebasedpricingforlineswithoutcontractpricing</parentStep>
-            <resultIncluded>false</resultIncluded>
+            <resultIncluded>true</resultIncluded>
             <sequenceNumber>2</sequenceNumber>
             <shouldExposExecPathMsgOnly>true</shouldExposExecPathMsgOnly>
             <shouldExposeConditionDetails>false</shouldExposeConditionDetails>
@@ -1784,6 +1799,13 @@
                 </parameters>
                 <parameters>
                     <input>true</input>
+                    <name>LookUpId</name>
+                    <output>false</output>
+                    <type>Literal</type>
+                    <value>0lDjV0000000TmsUAE</value>
+                </parameters>
+                <parameters>
+                    <input>true</input>
                     <name>LookUpApiName</name>
                     <output>false</output>
                     <type>Literal</type>
@@ -1837,13 +1859,6 @@
                     <output>true</output>
                     <type>Parameter</type>
                     <value>ItemNetTotalPrice</value>
-                </parameters>
-                <parameters>
-                    <input>true</input>
-                    <name>LookUpId</name>
-                    <output>false</output>
-                    <type>Literal</type>
-                    <value>0lDjV0000000TmsUAE</value>
                 </parameters>
             </customElement>
             <description>Bundle-Based Price</description>
@@ -2205,6 +2220,13 @@
                 </parameters>
                 <parameters>
                     <input>true</input>
+                    <name>LookUpId</name>
+                    <output>false</output>
+                    <type>Literal</type>
+                    <value>0lDjV0000000TmyUAE</value>
+                </parameters>
+                <parameters>
+                    <input>true</input>
                     <name>LookUpApiName</name>
                     <output>false</output>
                     <type>Literal</type>
@@ -2265,13 +2287,6 @@
                     <output>true</output>
                     <type>Parameter</type>
                     <value>IsContracted</value>
-                </parameters>
-                <parameters>
-                    <input>true</input>
-                    <name>LookUpId</name>
-                    <output>false</output>
-                    <type>Literal</type>
-                    <value>0lDjV0000000TmyUAE</value>
                 </parameters>
             </customElement>
             <description>Volume Discount</description>
@@ -2375,6 +2390,13 @@
                 </parameters>
                 <parameters>
                     <input>true</input>
+                    <name>LookUpId</name>
+                    <output>false</output>
+                    <type>Literal</type>
+                    <value>0lDjV0000000TmuUAE</value>
+                </parameters>
+                <parameters>
+                    <input>true</input>
                     <name>LookUpApiName</name>
                     <output>false</output>
                     <type>Literal</type>
@@ -2428,13 +2450,6 @@
                     <output>true</output>
                     <type>Parameter</type>
                     <value>ItemNetTotalPrice</value>
-                </parameters>
-                <parameters>
-                    <input>true</input>
-                    <name>LookUpId</name>
-                    <output>false</output>
-                    <type>Literal</type>
-                    <value>0lDjV0000000TmuUAE</value>
                 </parameters>
             </customElement>
             <description>Volume Discount</description>
@@ -4227,6 +4242,13 @@
                 </parameters>
                 <parameters>
                     <input>true</input>
+                    <name>LookUpId</name>
+                    <output>false</output>
+                    <type>Literal</type>
+                    <value>0lDjV0000000TmtUAE</value>
+                </parameters>
+                <parameters>
+                    <input>true</input>
                     <name>LookUpApiName</name>
                     <output>false</output>
                     <type>Literal</type>
@@ -4281,13 +4303,6 @@
                     <type>Parameter</type>
                     <value>ListPrice</value>
                 </parameters>
-                <parameters>
-                    <input>true</input>
-                    <name>LookUpId</name>
-                    <output>false</output>
-                    <type>Literal</type>
-                    <value>0lDjV0000000TmtUAE</value>
-                </parameters>
             </customElement>
             <description>List Price</description>
             <hasNestedExplainability>false</hasNestedExplainability>
@@ -4309,6 +4324,13 @@
                     <output>false</output>
                     <type>Parameter</type>
                     <value>LineItem</value>
+                </parameters>
+                <parameters>
+                    <input>true</input>
+                    <name>CurrencyIsoCode</name>
+                    <output>false</output>
+                    <type>Parameter</type>
+                    <value>CurrencyIsoCode</value>
                 </parameters>
                 <parameters>
                     <input>true</input>
@@ -4561,7 +4583,7 @@
             <name>AttributePASIdConstant</name>
             <output>false</output>
             <type>Constant</type>
-            <value>&apos;&apos;</value>
+            <value>84XjZ0000000Gj8UAE</value>
         </variables>
         <variables>
             <collection>false</collection>
@@ -4748,7 +4770,7 @@
             <name>VolumePASIdConstant</name>
             <output>false</output>
             <type>Constant</type>
-            <value>&apos;&apos;</value>
+            <value>84XjZ0000000Gj7UAE</value>
         </variables>
         <versionNumber>1</versionNumber>
     </versions>
