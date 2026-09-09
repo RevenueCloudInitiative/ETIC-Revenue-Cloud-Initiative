@@ -1,0 +1,47 @@
+name: Salesforce PR Validation
+
+# Runs on every push to any branch except main.
+# main is excluded so merges don't re-run a dry-run of code
+# that was already validated on the PR.
+on:
+  push:
+    branches-ignore:
+      - main
+
+jobs:
+  validate:
+    name: Validate Salesforce Deployment
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Install Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Install Salesforce CLI
+        run: npm install --global @salesforce/cli
+
+      - name: Authenticate to Salesforce
+        run: |
+          echo "${{ secrets.SFDX_AUTH_URL_PROD }}" > auth.txt
+          sf org login sfdx-url \
+            --sfdx-url-file auth.txt \
+            --alias target
+          rm -f auth.txt
+
+      - name: Validate deployment
+        run: |
+          sf project deploy start \
+            --target-org target \
+            --wait 120 \
+            --test-level RunLocalTests \
+            --dry-run
+
+      - name: Clean up
+        if: always()
+        run: rm -f auth.txt
