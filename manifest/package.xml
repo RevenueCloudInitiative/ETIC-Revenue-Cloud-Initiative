@@ -30,15 +30,5 @@
         <name>DecisionTable</name>
     </types>
 
-    <!-- ============================================================
-         ACCESS
-         Permission sets only. Profiles are deliberately excluded:
-         they retrieve as very large files and cause repeated deploy
-         conflicts for little benefit.
-         ============================================================ -->
-    <types>
-        <members>*</members>
-        <name>PermissionSet</name>
-    </types>
 	<version>67.0</version>
 </Package>
