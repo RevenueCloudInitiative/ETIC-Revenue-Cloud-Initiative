@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ExpressionSetDefinition xmlns="http://soap.sforce.com/2006/04/metadata">
     <contextDefinitions>ProductDiscoveryContextAuto</contextDefinitions>
+    <executionMode>Cloud</executionMode>
+    <executionScale>Low</executionScale>
     <interfaceSourceType>PricingProcedure</interfaceSourceType>
     <label>Product Discovery Pricing Procedure Auto</label>
     <processType>DefaultPricing</processType>
@@ -15,7 +17,7 @@
         <processType>DefaultPricing</processType>
         <rank>1</rank>
         <shouldShowExplExternally>false</shouldShowExplExternally>
-        <startDate>2023-10-24T19:56:40.000Z</startDate>
+        <startDate>2026-09-02T19:56:40.000Z</startDate>
         <status>Active</status>
         <steps>
             <actionType>ListPrice</actionType>
@@ -43,6 +45,13 @@
                 </parameters>
                 <parameters>
                     <input>true</input>
+                    <name>CurrencyIsoCode</name>
+                    <output>false</output>
+                    <type>Parameter</type>
+                    <value>PricingCurrencyCode</value>
+                </parameters>
+                <parameters>
+                    <input>true</input>
                     <name>Quantity</name>
                     <output>false</output>
                     <type>Parameter</type>
@@ -61,6 +70,13 @@
                     <output>false</output>
                     <type>Literal</type>
                     <value>Price Book Entries V2</value>
+                </parameters>
+                <parameters>
+                    <input>true</input>
+                    <name>LookUpId</name>
+                    <output>false</output>
+                    <type>Literal</type>
+                    <value>0lDjV0000000TmtUAE</value>
                 </parameters>
                 <parameters>
                     <input>true</input>
@@ -139,13 +155,6 @@
                     <type>Parameter</type>
                     <value>SubTotal</value>
                 </parameters>
-                <parameters>
-                    <input>true</input>
-                    <name>LookUpId</name>
-                    <output>false</output>
-                    <type>Literal</type>
-                    <value>0lDjV0000000TmtUAE</value>
-                </parameters>
             </customElement>
             <description>List Price</description>
             <hasNestedExplainability>false</hasNestedExplainability>
@@ -167,6 +176,13 @@
                     <output>false</output>
                     <type>Parameter</type>
                     <value>PricingId</value>
+                </parameters>
+                <parameters>
+                    <input>true</input>
+                    <name>CurrencyIsoCode</name>
+                    <output>false</output>
+                    <type>Parameter</type>
+                    <value>PricingCurrencyCode</value>
                 </parameters>
                 <parameters>
                     <input>true</input>
