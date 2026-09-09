@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>66.0</apiVersion>
+    <areMetricsLoggedToDataCloud>false</areMetricsLoggedToDataCloud>
+    <assignments>
+        <name>Assign_Gantt_Label</name>
+        <label>Set Gantt Label from Subject</label>
+        <locationX>176</locationX>
+        <locationY>288</locationY>
+        <assignmentItems>
+            <assignToReference>$Record.FSL__GanttLabel__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>$Record.Subject</elementReference>
+            </value>
+        </assignmentItems>
+    </assignments>
+    <description>Syncs the Service Appointment Subject field to the FSL Gantt Label field on insert, or on update when Subject changes. Runs before save — no extra DML.</description>
+    <environments>Default</environments>
+    <interviewLabel>SDO_FSL_Sync_SA_Gantt_Label {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>FSL - Sync SA Subject to Gantt Label</label>
+    <processType>AutoLaunchedFlow</processType>
+    <start>
+        <locationX>50</locationX>
+        <locationY>0</locationY>
+        <connector>
+            <targetReference>Assign_Gantt_Label</targetReference>
+        </connector>
+        <filterFormula>OR(ISNEW(), ISCHANGED({!$Record.Subject}))</filterFormula>
+        <object>ServiceAppointment</object>
+        <recordTriggerType>CreateAndUpdate</recordTriggerType>
+        <triggerType>RecordBeforeSave</triggerType>
+    </start>
+    <status>Active</status>
+</Flow>

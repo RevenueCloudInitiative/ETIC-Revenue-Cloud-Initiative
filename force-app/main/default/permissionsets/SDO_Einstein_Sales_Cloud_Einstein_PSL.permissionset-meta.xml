@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<PermissionSet xmlns="http://soap.sforce.com/2006/04/metadata">
+    <description>What: Includes the Sales Cloud Einstein PSL for EMC, Oppty and Lead scoring, etc</description>
+    <hasActivationRequired>false</hasActivationRequired>
+    <label>Einstein - Sales Cloud Einstein PSL</label>
+    <license>SalesCloudEinsteinPsl</license>
+    <userPermissions>
+        <enabled>true</enabled>
+        <name>AutomaticActivityCapture</name>
+    </userPermissions>
+    <userPermissions>
+        <enabled>true</enabled>
+        <name>LeadScoreUser</name>
+    </userPermissions>
+    <userPermissions>
+        <enabled>true</enabled>
+        <name>OpportunityScoreUser</name>
+    </userPermissions>
+    <userPermissions>
+        <enabled>true</enabled>
+        <name>SCEViewAllData</name>
+    </userPermissions>
+    <userPermissions>
+        <enabled>true</enabled>
+        <name>ViewForecastingPredictive</name>
+    </userPermissions>
+</PermissionSet>

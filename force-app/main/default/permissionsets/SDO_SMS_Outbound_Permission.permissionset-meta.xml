@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<PermissionSet xmlns="http://soap.sforce.com/2006/04/metadata">
+    <description>Enabled user to have the Outbound SMS permission required to use Agent Initiated Outbound Messaging</description>
+    <hasActivationRequired>false</hasActivationRequired>
+    <label>SDO SMS Outbound Permission</label>
+    <userPermissions>
+        <enabled>true</enabled>
+        <name>CanInitiateMessagingSessions</name>
+    </userPermissions>
+    <userPermissions>
+        <enabled>true</enabled>
+        <name>CanSendInitialSMSToIndividual</name>
+    </userPermissions>
+    <userPermissions>
+        <enabled>true</enabled>
+        <name>LMOutboundMessagingUserPerm</name>
+    </userPermissions>
+</PermissionSet>

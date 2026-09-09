@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<PermissionSet xmlns="http://soap.sforce.com/2006/04/metadata">
+    <description>Added Oct 11, 2024 by Christine Vendikos to enable 252 Salesforce Mobile Experience</description>
+    <hasActivationRequired>false</hasActivationRequired>
+    <label>Salesforce Mobile App: Native Seller Experience</label>
+    <userPermissions>
+        <enabled>true</enabled>
+        <name>EnhancedSalesMobileExp</name>
+    </userPermissions>
+</PermissionSet>

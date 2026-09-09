@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<PermissionSet xmlns="http://soap.sforce.com/2006/04/metadata">
+    <customMetadataTypeAccesses>
+        <enabled>true</enabled>
+        <name>Slack__mdt</name>
+    </customMetadataTypeAccesses>
+    <description>Grants access to the Slack__mdt custom metadata type, which stores Slack Demo Org connection details populated at deploy time. Also grants access to the DemoZone external credential principal used by apex callouts.</description>
+    <externalCredentialPrincipalAccesses>
+        <enabled>true</enabled>
+        <externalCredentialPrincipal>DemoZone-DemoZonePrincipal</externalCredentialPrincipal>
+    </externalCredentialPrincipalAccesses>
+    <hasActivationRequired>false</hasActivationRequired>
+    <label>Slack Metadata</label>
+</PermissionSet>

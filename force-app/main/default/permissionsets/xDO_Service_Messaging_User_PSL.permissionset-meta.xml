@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<PermissionSet xmlns="http://soap.sforce.com/2006/04/metadata">
+    <description>What: Includes the PSL for Messaging User</description>
+    <hasActivationRequired>false</hasActivationRequired>
+    <label>Service - Messaging User PSL Base</label>
+    <license>LiveMessageUserPsl</license>
+    <userPermissions>
+        <enabled>true</enabled>
+        <name>ConfigureLiveMessage</name>
+    </userPermissions>
+    <userPermissions>
+        <enabled>true</enabled>
+        <name>LMEndMessagingSessionUserPerm</name>
+    </userPermissions>
+    <userPermissions>
+        <enabled>true</enabled>
+        <name>LiveMessageAgent</name>
+    </userPermissions>
+</PermissionSet>

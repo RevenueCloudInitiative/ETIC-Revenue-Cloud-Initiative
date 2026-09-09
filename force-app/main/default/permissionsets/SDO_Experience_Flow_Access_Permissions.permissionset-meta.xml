@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<PermissionSet xmlns="http://soap.sforce.com/2006/04/metadata">
+    <description>What: Grants access to generic Flows used in Experience Cloud
+Why: The Flows need to have restricted access in order to let Guest Users run it</description>
+    <flowAccesses>
+        <enabled>true</enabled>
+        <flow>SDO_Experience_Request_Information</flow>
+    </flowAccesses>
+    <flowAccesses>
+        <enabled>true</enabled>
+        <flow>SDO_Experience_Secure_Your_Spot</flow>
+    </flowAccesses>
+    <hasActivationRequired>false</hasActivationRequired>
+    <label>SDO Experience - Flow Access Permissions</label>
+</PermissionSet>

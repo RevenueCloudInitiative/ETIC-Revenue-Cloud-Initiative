@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<PermissionSet xmlns="http://soap.sforce.com/2006/04/metadata">
+    <description>What: This permissions set includes the required permissions in order to demonstrate Security Center. Who:</description>
+    <hasActivationRequired>false</hasActivationRequired>
+    <label>Platform - Security Center</label>
+    <userPermissions>
+        <enabled>true</enabled>
+        <name>ManageSecurityCommandCenter</name>
+    </userPermissions>
+    <userPermissions>
+        <enabled>true</enabled>
+        <name>ViewSecurityCommandCenter</name>
+    </userPermissions>
+</PermissionSet>

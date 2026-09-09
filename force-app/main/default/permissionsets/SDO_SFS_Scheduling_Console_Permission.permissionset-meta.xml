@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<PermissionSet xmlns="http://soap.sforce.com/2006/04/metadata">
+    <hasActivationRequired>false</hasActivationRequired>
+    <label>Field Service - Scheduling Console Permission</label>
+    <tabSettings>
+        <tab>standard-FieldServiceDispatchConsole</tab>
+        <visibility>Visible</visibility>
+    </tabSettings>
+    <userPermissions>
+        <enabled>true</enabled>
+        <name>AccessDispatchConsoleMap</name>
+    </userPermissions>
+    <userPermissions>
+        <enabled>true</enabled>
+        <name>RunGlobalOptimization</name>
+    </userPermissions>
+    <userPermissions>
+        <enabled>true</enabled>
+        <name>RunInDayOptimization</name>
+    </userPermissions>
+    <userPermissions>
+        <enabled>true</enabled>
+        <name>RunResourceScheduleOptimization</name>
+    </userPermissions>
+    <userPermissions>
+        <enabled>true</enabled>
+        <name>SetAdvancedOptimizationFilters</name>
+    </userPermissions>
+    <userPermissions>
+        <enabled>true</enabled>
+        <name>ShowPlannedRoute</name>
+    </userPermissions>
+</PermissionSet>
