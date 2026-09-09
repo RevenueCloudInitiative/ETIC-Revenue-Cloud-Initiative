@@ -7,7 +7,6 @@
     <label>Revenue Management Default Pricing Procedure Auto</label>
     <processType>DefaultPricing</processType>
     <template>false</template>
-    <usageSubtype>RevenueCloud</usageSubtype>
     <versions>
         <fullName>Rev_Mgmt_Default_Pricing_Procedure_Auto_V1</fullName>
         <decimalScale>2</decimalScale>
