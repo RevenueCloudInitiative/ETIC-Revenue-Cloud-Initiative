@@ -1,12 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ExpressionSetDefinition xmlns="http://soap.sforce.com/2006/04/metadata">
-    <contextDefinitions>Apex_SalesTransactionContext</contextDefinitions>
+    <contextDefinitions>SalesTransactionContextAuto</contextDefinitions>
     <executionMode>Cloud</executionMode>
     <executionScale>Low</executionScale>
     <interfaceSourceType>PricingProcedure</interfaceSourceType>
     <label>Revenue Management Default Pricing Procedure Auto</label>
     <processType>DefaultPricing</processType>
     <template>false</template>
+    <usageSubtype>RevenueCloud</usageSubtype>
     <versions>
         <fullName>Rev_Mgmt_Default_Pricing_Procedure_Auto_V1</fullName>
         <decimalScale>2</decimalScale>
