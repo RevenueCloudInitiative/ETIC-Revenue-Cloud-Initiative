@@ -40,10 +40,5 @@
         <members>*</members>
         <name>PermissionSet</name>
     </types>
-
-    <types>
-        <members>*</members>
-        <name>Flow</name>
-    </types>
 	<version>67.0</version>
 </Package>
