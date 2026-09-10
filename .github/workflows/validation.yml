@@ -1,8 +1,5 @@
 name: Salesforce PR Validation
 
-# Runs on every push to any branch except main.
-# main is excluded so merges don't re-run a dry-run of code
-# that was already validated on the PR.
 on:
   push:
     branches-ignore:
@@ -12,11 +9,15 @@ jobs:
   validate:
     name: Validate Salesforce Deployment
     runs-on: ubuntu-latest
+
     permissions:
       contents: read
+
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
 
       - name: Install Node
         uses: actions/setup-node@v4
@@ -26,6 +27,11 @@ jobs:
       - name: Install Salesforce CLI
         run: npm install --global @salesforce/cli
 
+      - name: Install SFDX Git Delta
+        run: |
+          echo y | sf plugins install sfdx-git-delta
+          sf plugins
+
       - name: Authenticate to Salesforce
         run: |
           echo "${{ secrets.SFDX_AUTH_URL_PROD }}" > auth.txt
@@ -34,14 +40,32 @@ jobs:
             --alias target
           rm -f auth.txt
 
-      - name: Validate deployment
+      - name: Generate Delta Package
         run: |
-          sf project deploy start \
-            --target-org target \
-            --wait 120 \
-            --test-level RunLocalTests \
-            --dry-run
+          mkdir delta
 
-      - name: Clean up
+          sf sgd source delta \
+            --from origin/main \
+            --to HEAD \
+            --output-dir delta
+
+          echo "Generated package:"
+          cat delta/package/package.xml
+
+      - name: Validate Deployment
+        run: |
+          if [ ! -f delta/package/package.xml ]; then
+            echo "No package.xml generated"
+            exit 0
+          fi
+
+          sf project deploy start \
+            --manifest delta/package/package.xml \
+            --target-org target \
+            --dry-run \
+            --wait 120 \
+            --test-level RunLocalTests
+
+      - name: Clean Up
         if: always()
         run: rm -f auth.txt
