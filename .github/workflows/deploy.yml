@@ -1,109 +1,7 @@
-name: Deploy to Salesforce
-
-# Runs ONLY in two situations:
-#
-#   1. The "Ready to Deploy" label was just applied to a PR.
-#      -> check validation passed on this commit, then deploy.
-#
-#   2. New commits were pushed to a PR that ALREADY carries the label.
-#      -> the prior approval is stale, so strip the label and fail
-#         the check to re-block merge.
-#
-# A push to a PR that is NOT labelled does nothing at all: the job is
-# skipped and no failing check appears.
-on:
-  pull_request:
-    types: [labeled, synchronize]
-
-env:
-  DEPLOY_LABEL: "Ready to Deploy"
-  VALIDATION_WORKFLOW: "validation.yml"
-
-jobs:
-  deploy:
-    name: Deploy to Salesforce
-    if: >-
-      (github.event.action == 'labeled' && github.event.label.name == 'Ready to Deploy')
-      || (github.event.action == 'synchronize'
-          && contains(github.event.pull_request.labels.*.name, 'Ready to Deploy'))
-    runs-on: ubuntu-latest
-    permissions:
-      contents: read
-      actions: read          # to query the validation workflow run
-      pull-requests: write   # to remove the label on synchronize
-    # Serialise deployments so two labelled PRs cannot race into the
-    # same org at the same time.
-    concurrency:
-      group: salesforce-deploy
-      cancel-in-progress: false
-    steps:
-
-      # ------------------------------------------------------------
-      # NEW COMMITS ON A LABELLED PR -> revoke approval, block merge
-      # ------------------------------------------------------------
-      - name: Revoke deploy label on new commits
-        if: github.event.action == 'synchronize'
-        env:
-          GH_TOKEN: ${{ github.token }}
-        run: |
-          gh api \
-            --method DELETE \
-            "repos/${{ github.repository }}/issues/${{ github.event.pull_request.number }}/labels/$(printf '%s' "$DEPLOY_LABEL" | jq -sRr @uri)" \
-            2>/dev/null || echo "Label was not present."
-          echo "::error::New commits pushed. Deploy approval revoked. Wait for validation to pass, then re-apply the '$DEPLOY_LABEL' label."
-          exit 1
-
-      # ------------------------------------------------------------
-      # VALIDATION GATE
-      # Look up the validation run for THIS head commit. Waits while
-      # it is still running; fails if it never ran, failed, or was
-      # cancelled. Matching on SHA means a pass on an older commit
-      # cannot be reused.
-      # ------------------------------------------------------------
-      - name: Require passing validation on this commit
-        env:
-          GH_TOKEN: ${{ github.token }}
-          HEAD_SHA: ${{ github.event.pull_request.head.sha }}
-        run: |
-          echo "Checking validation status for commit $HEAD_SHA"
-
-          for attempt in $(seq 1 60); do
-            RUN=$(gh api \
-              "repos/${{ github.repository }}/actions/workflows/${VALIDATION_WORKFLOW}/runs?head_sha=${HEAD_SHA}&per_page=1" \
-              --jq '.workflow_runs[0] | {status: .status, conclusion: .conclusion, url: .html_url}' 2>/dev/null)
-
-            if [ -z "$RUN" ] || [ "$RUN" = "null" ]; then
-              echo "::error::No validation run found for commit $HEAD_SHA. Validation must run and pass before deploying."
-              exit 1
-            fi
-
-            STATUS=$(echo "$RUN" | jq -r '.status')
-            CONCLUSION=$(echo "$RUN" | jq -r '.conclusion')
-            RUN_URL=$(echo "$RUN" | jq -r '.url')
-
-            if [ "$STATUS" != "completed" ]; then
-              echo "Validation is '$STATUS'. Waiting... (attempt $attempt/60)"
-              sleep 20
-              continue
-            fi
-
-            if [ "$CONCLUSION" = "success" ]; then
-              echo "Validation passed: $RUN_URL"
-              exit 0
-            fi
-
-            echo "::error::Validation concluded '$CONCLUSION' for this commit. See $RUN_URL"
-            exit 1
-          done
-
-          echo "::error::Timed out waiting for validation to complete."
-          exit 1
-
-      # ------------------------------------------------------------
-      # DEPLOY
-      # ------------------------------------------------------------
       - name: Checkout merge result
         uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
 
       - name: Install Node
         uses: actions/setup-node@v4
@@ -113,6 +11,9 @@ jobs:
       - name: Install Salesforce CLI
         run: npm install --global @salesforce/cli
 
+      - name: Install SFDX Git Delta
+        run: sf plugins install sfdx-git-delta
+
       - name: Authenticate to Salesforce
         run: |
           echo "${{ secrets.SFDX_AUTH_URL_PROD }}" > auth.txt
@@ -121,13 +22,22 @@ jobs:
             --alias target
           rm -f auth.txt
 
+      - name: Generate Delta Package
+        run: |
+          mkdir delta
+
+          sf sgd source delta \
+            --from origin/main \
+            --to HEAD \
+            --output-dir delta
+
+          echo "Generated package:"
+          cat delta/package/package.xml
+
       - name: Deploy
         run: |
           sf project deploy start \
+            --manifest delta/package/package.xml \
             --target-org target \
             --wait 120 \
             --test-level RunLocalTests
-
-      - name: Clean up
-        if: always()
-        run: rm -f auth.txt
