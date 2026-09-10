@@ -12,7 +12,9 @@
         run: npm install --global @salesforce/cli
 
       - name: Install SFDX Git Delta
-        run: sf plugins install sfdx-git-delta
+        run: |
+          echo y | sf plugins install sfdx-git-delta
+          sf plugins
 
       - name: Authenticate to Salesforce
         run: |
