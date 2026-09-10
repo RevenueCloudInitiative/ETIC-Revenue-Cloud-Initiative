@@ -265,7 +265,6 @@
     </relatedLists>
     <relatedLists>
         <fields>Name</fields>
-        <fields>RootProduct</fields>
         <fields>ParentProduct</fields>
         <fields>EffectiveToDate</fields>
         <fields>EffectiveFromDate</fields>
