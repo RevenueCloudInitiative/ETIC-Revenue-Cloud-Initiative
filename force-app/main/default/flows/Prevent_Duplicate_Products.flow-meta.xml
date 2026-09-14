@@ -40,11 +40,6 @@
             <label>Duplicate Exists</label>
         </rules>
     </decisions>
-    <ends>
-        <name>END_ELEMENT_1</name>
-        <locationX>0</locationX>
-        <locationY>0</locationY>
-    </ends>
     <environments>Default</environments>
     <interviewLabel>Prevent Duplicate Products {!$Flow.CurrentDateTime}</interviewLabel>
     <label>Prevent Duplicate Products</label>
