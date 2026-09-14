@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Block_Inactive_Products_In_Transactions</fullName>
+    <active>true</active>
+    <errorConditionFormula>OR(
+    TEXT(Product2.Lifecycle_Status__c) = &quot;Draft&quot;,
+    TEXT(Product2.Lifecycle_Status__c) = &quot;Retired&quot;
+)</errorConditionFormula>
+    <errorDisplayField>Product2Id</errorDisplayField>
+    <errorMessage>You cannot add this product to a transaction because it is in a Draft or Retired state.</errorMessage>
+</ValidationRule>
