@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Active_Product_Must_Be_Active</fullName>
+    <active>true</active>
+    <errorConditionFormula>AND(
+ISPICKVAL(Lifecycle_Status__c, &quot;Active&quot;),
+NOT(IsActive)
+)</errorConditionFormula>
+    <errorDisplayField>IsActive</errorDisplayField>
+    <errorMessage>Products with Lifecycle Status &apos;Active&apos; must have the Active checkbox selected.</errorMessage>
+</ValidationRule>
