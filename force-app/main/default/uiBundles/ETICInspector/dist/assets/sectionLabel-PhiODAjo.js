@@ -1,0 +1,1 @@
+import{r as a}from"./index-DoYnoRuf.js";const o=new Map;function p(e,s,n){const[t,c]=a.useState(()=>o.has(e)?o.get(e):typeof s=="function"?s():s),r=n?n(t):!0;return a.useEffect(()=>{r&&o.set(e,t)},[e,t,r]),[t,c]}const u="text-muted-foreground text-xs font-semibold uppercase tracking-wide",b=`${u} mb-1.5 block`;export{u as a,b as s,p as u};
