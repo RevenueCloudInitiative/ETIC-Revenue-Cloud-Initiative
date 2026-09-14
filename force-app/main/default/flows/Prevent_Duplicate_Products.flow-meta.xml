@@ -7,9 +7,6 @@
         <label>Duplicate Found Error</label>
         <locationX>0</locationX>
         <locationY>0</locationY>
-        <connector>
-            <targetReference>END_ELEMENT_1</targetReference>
-        </connector>
         <customErrorMessages>
             <errorMessage>A product with this code already exists in the catalog. Please check before creating a new one.</errorMessage>
             <isFieldError>false</isFieldError>
@@ -20,9 +17,6 @@
         <label>Duplicate Found?</label>
         <locationX>0</locationX>
         <locationY>0</locationY>
-        <defaultConnector>
-            <targetReference>END_ELEMENT_1</targetReference>
-        </defaultConnector>
         <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
         <rules>
             <name>Duplicate_Exists</name>
