@@ -1,20 +1,34 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <Package xmlns="http://soap.sforce.com/2006/04/metadata">
 	<types>
-		<members>*</members>
-		<name>ContentAsset</name>
+		<members>ProductDiscoveryContextAuto</members>
+		<members>RatingDiscoveryContextAuto</members>
+		<name>ContextDefinition</name>
 	</types>
 	<types>
-		<members>ETICInspector</members>
-		<name>CustomApplication</name>
+		<members>Default_Rating_Discovery_Procedure_Auto</members>
+		<members>Product_Discovery_Pricing_Procedure_Auto</members>
+		<name>ExpressionSetDefinition</name>
 	</types>
 	<types>
-		<members>ETIC_Inspector_Access</members>
-		<name>PermissionSet</name>
+		<members>Default_Rating_Discovery_Procedure_Auto_V1</members>
+		<members>Product_Discovery_Pricing_Procedure_Auto_V1</members>
+		<name>ExpressionSetDefinitionVersion</name>
 	</types>
 	<types>
-		<members>ETICInspector</members>
-		<name>UIBundle</name>
+		<members>System_Admins</members>
+		<name>Group</name>
 	</types>
+    <types>
+        <members>*</members>
+        <name>ExpressionSetDefinition</name>
+    </types>
+
+    <!-- TRIM: only present if you built decision tables -->
+    <types>
+        <members>*</members>
+        <name>DecisionTable</name>
+    </types>
+
 	<version>67.0</version>
 </Package>
