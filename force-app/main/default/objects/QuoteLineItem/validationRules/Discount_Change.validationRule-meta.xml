@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Discount_Change</fullName>
+    <active>true</active>
+    <errorConditionFormula>AND(
+    ISCHANGED( Discount ),
+
+    $UserRole.Name &lt;&gt; &quot;Sales Manager&quot;,
+    $UserRole.Name &lt;&gt; &quot;Sales Director&quot;,
+    $UserRole.Name &lt;&gt; &quot;CFO&quot;,
+ NOT(Bypass_Validation__c))</errorConditionFormula>
+    <errorMessage>You are not authorized to update the Discount Percentage. Please submit a discount request for approval.</errorMessage>
+</ValidationRule>
