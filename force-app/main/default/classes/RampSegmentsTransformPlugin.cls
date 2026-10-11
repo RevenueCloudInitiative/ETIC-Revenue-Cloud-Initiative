@@ -197,7 +197,15 @@ global class RampSegmentsTransformPlugin
                     + rampName
                 );
             }
+  /*
+             * Resolve clause library tokens for this contract.
+             */
+            String accountIdStr = readString(source, 'Account');
+            Map<String, String> clauseTokens = ClauseLibraryResolver.resolveAll(lineRecords, accountIdStr);
 
+            for (String tokenName : clauseTokens.keySet()) {
+                result.put(tokenName, clauseTokens.get(tokenName));
+            }
             /*
              * Alphabetically order ramp groups first.
              */
@@ -211,15 +219,28 @@ global class RampSegmentsTransformPlugin
                     NON_RAMPED_GROUP
                 );
 
-            if (nonRampedIndex >= 0) {
+            /*
+            * Move Non-Ramped Products only when it isn't
+            * already the first group.
+            */
+            if (nonRampedIndex > 0) {
                 rampOrder.remove(
                     nonRampedIndex
                 );
 
-                rampOrder.add(
-                    0,
+                List<String> reorderedRampGroups =
+                    new List<String>();
+
+                reorderedRampGroups.add(
                     NON_RAMPED_GROUP
                 );
+
+                reorderedRampGroups.addAll(
+                    rampOrder
+                );
+
+                rampOrder =
+                    reorderedRampGroups;
             }
 
             /*
