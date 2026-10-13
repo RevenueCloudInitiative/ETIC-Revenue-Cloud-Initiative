@@ -1,10 +1,13 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <Package xmlns="http://soap.sforce.com/2006/04/metadata">
 	<types>
-		<members>Quote.Finance_Approver_Manager__c</members>
-		<members>Quote.Finance_Approver__c</members>
-		<members>Quote.Sales_Manager_Approver__c</members>
-		<name>CustomField</name>
+		<members>Quote.Approved_Tier_CFO</members>
+		<members>Quote.Set_Approval_Status_Approved</members>
+		<members>Quote.Set_Approval_Status_Approved2</members>
+		<members>Quote.Set_Approval_Status_Rejected</members>
+		<members>Quote.Set_Approved_Tier</members>
+		<members>Quote.Set_Approved_Tier2</members>
+		<name>WorkflowFieldUpdate</name>
 	</types>
 	<version>68.0</version>
 </Package>
