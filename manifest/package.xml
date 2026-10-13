@@ -1,19 +1,10 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <Package xmlns="http://soap.sforce.com/2006/04/metadata">
 	<types>
-		<members>ClauseLibraryResolver</members>
-		<members>ClauseLibraryResolverTest</members>
-		<members>RampSegmentsTransformPlugin</members>
-		<members>RampSegmentsTransformPluginTest</members>
-		<name>ApexClass</name>
-	</types>
-	<types>
-		<members>*</members>
-		<name>ApprovalProcess</name>
-	</types>
-	<types>
-		<members>*</members>
-		<name>FlexiPage</name>
+		<members>Quote.Finance_Approver_Manager__c</members>
+		<members>Quote.Finance_Approver__c</members>
+		<members>Quote.Sales_Manager_Approver__c</members>
+		<name>CustomField</name>
 	</types>
 	<version>68.0</version>
 </Package>
