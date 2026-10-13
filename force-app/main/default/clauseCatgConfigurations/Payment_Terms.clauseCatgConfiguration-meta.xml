@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ClauseCatgConfiguration xmlns="http://soap.sforce.com/2006/04/metadata">
+    <masterLabel>Payment Terms</masterLabel>
+    <usageType>ContractClauseCategory</usageType>
+</ClauseCatgConfiguration>
