@@ -33,8 +33,8 @@
         </approvalActions>
         <assignedApprover>
             <approver>
-                <name>nada.elnegihi@pwc.com.revenue</name>
-                <type>user</type>
+                <name>Sales_Manager_Approver__c</name>
+                <type>relatedUserField</type>
             </approver>
             <whenMultipleApprovers>FirstResponse</whenMultipleApprovers>
         </assignedApprover>
@@ -69,8 +69,8 @@
         </approvalActions>
         <assignedApprover>
             <approver>
-                <name>nada.elnegihi123@pwc.com</name>
-                <type>user</type>
+                <name>Finance_Approver__c</name>
+                <type>relatedUserField</type>
             </approver>
             <whenMultipleApprovers>FirstResponse</whenMultipleApprovers>
         </assignedApprover>
@@ -109,8 +109,8 @@
         </approvalActions>
         <assignedApprover>
             <approver>
-                <name>nada.elnegihi@pwc.com.revenue</name>
-                <type>user</type>
+                <name>Finance_Approver_Manager__c</name>
+                <type>relatedUserField</type>
             </approver>
             <whenMultipleApprovers>FirstResponse</whenMultipleApprovers>
         </assignedApprover>
