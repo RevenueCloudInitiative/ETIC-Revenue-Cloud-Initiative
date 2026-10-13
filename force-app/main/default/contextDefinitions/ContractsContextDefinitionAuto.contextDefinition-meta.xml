@@ -1015,6 +1015,38 @@
                     <contextAttribute>EffectiveEndDate__c</contextAttribute>
                     <contextInputAttributeName>EffectiveEndDate__c</contextInputAttributeName>
                 </contextAttributeMappings>
+                <contextAttributeMappings>
+                    <contextAttrHydrationDetails>
+                        <objectName>SalesContractLine</objectName>
+                        <queryAttribute>Selling_Model_Type__c</queryAttribute>
+                    </contextAttrHydrationDetails>
+                    <contextAttribute>SellingModel__c</contextAttribute>
+                    <contextInputAttributeName>SellingModel__c</contextInputAttributeName>
+                </contextAttributeMappings>
+                <contextAttributeMappings>
+                    <contextAttrHydrationDetails>
+                        <objectName>SalesContractLine</objectName>
+                        <queryAttribute>QuoteLineItemId</queryAttribute>
+                    </contextAttrHydrationDetails>
+                    <contextAttribute>QuoteLineId__c</contextAttribute>
+                    <contextInputAttributeName>QuoteLineId__c</contextInputAttributeName>
+                </contextAttributeMappings>
+                <contextAttributeMappings>
+                    <contextAttrHydrationDetails>
+                        <objectName>SalesContractLine</objectName>
+                        <queryAttribute>Pricing_Term_Unit__c</queryAttribute>
+                    </contextAttrHydrationDetails>
+                    <contextAttribute>PaymentTerm__c</contextAttribute>
+                    <contextInputAttributeName>PaymentTerm__c</contextInputAttributeName>
+                </contextAttributeMappings>
+                <contextAttributeMappings>
+                    <contextAttrHydrationDetails>
+                        <objectName>SalesContractLine</objectName>
+                        <queryAttribute>Product_Attributes_JSON__c</queryAttribute>
+                    </contextAttrHydrationDetails>
+                    <contextAttribute>AttributesJSON__c</contextAttribute>
+                    <contextInputAttributeName>AttributesJSON__c</contextInputAttributeName>
+                </contextAttributeMappings>
                 <contextNode>SalesContractLineCache</contextNode>
                 <inheritedFrom>ContractsContextDefinition__stdctx/version/QuoteToCntrPersistenceMapping/SalesContractLineCache</inheritedFrom>
                 <object>SalesContractLine</object>
@@ -1308,6 +1340,14 @@
                     </contextAttrHydrationDetails>
                     <contextAttribute>AttributesJSON__c</contextAttribute>
                     <contextInputAttributeName>AttributesJSON__c</contextInputAttributeName>
+                </contextAttributeMappings>
+                <contextAttributeMappings>
+                    <contextAttrHydrationDetails>
+                        <objectName>SalesContractLine</objectName>
+                        <queryAttribute>QuoteLineItemId</queryAttribute>
+                    </contextAttrHydrationDetails>
+                    <contextAttribute>QuoteLineId__c</contextAttribute>
+                    <contextInputAttributeName>QuoteLineId__c</contextInputAttributeName>
                 </contextAttributeMappings>
                 <contextNode>SalesContractLineCache</contextNode>
                 <object>SalesContractLine</object>
@@ -1757,6 +1797,30 @@
                     <contextAttribute>EffectiveStartDate__c</contextAttribute>
                     <contextInputAttributeName>EffectiveStartDate__c</contextInputAttributeName>
                 </contextAttributeMappings>
+                <contextAttributeMappings>
+                    <contextAttrHydrationDetails>
+                        <objectName>QuoteLineItem</objectName>
+                        <queryAttribute>Id</queryAttribute>
+                    </contextAttrHydrationDetails>
+                    <contextAttribute>QuoteLineId__c</contextAttribute>
+                    <contextInputAttributeName>QuoteLineId__c</contextInputAttributeName>
+                </contextAttributeMappings>
+                <contextAttributeMappings>
+                    <contextAttrHydrationDetails>
+                        <objectName>QuoteLineItem</objectName>
+                        <queryAttribute>PricingTermUnit</queryAttribute>
+                    </contextAttrHydrationDetails>
+                    <contextAttribute>PaymentTerm__c</contextAttribute>
+                    <contextInputAttributeName>PaymentTerm__c</contextInputAttributeName>
+                </contextAttributeMappings>
+                <contextAttributeMappings>
+                    <contextAttrHydrationDetails>
+                        <objectName>QuoteLineItem</objectName>
+                        <queryAttribute>ConstraintEngineNodeStatus__c</queryAttribute>
+                    </contextAttrHydrationDetails>
+                    <contextAttribute>AttributesJSON__c</contextAttribute>
+                    <contextInputAttributeName>AttributesJSON__c</contextInputAttributeName>
+                </contextAttributeMappings>
                 <contextNode>SalesContractLineCache</contextNode>
                 <object>QuoteLineItem</object>
             </contextNodeMappings>
@@ -2178,6 +2242,17 @@
                 <transient>false</transient>
                 <value>false</value>
             </contextAttributes>
+            <contextAttributes>
+                <customMappingAllowed>false</customMappingAllowed>
+                <dataType>string</dataType>
+                <displayName>QuoteLineId</displayName>
+                <fieldType>inputoutput</fieldType>
+                <key>false</key>
+                <localizationDisabled>false</localizationDisabled>
+                <title>QuoteLineId__c</title>
+                <transient>false</transient>
+                <value>false</value>
+            </contextAttributes>
             <contextTags>
                 <inheritedFrom>ContractsContextDefinition__stdctx/version/ContractCache/SalesContractLineCache/SalesContractLineCache</inheritedFrom>
                 <title>SalesContractLineCache</title>
@@ -2276,7 +2351,7 @@
         </contextNodes>
         <isActive>true</isActive>
         <startDate>2026-09-28 12:37:27</startDate>
-        <versionNumber>43</versionNumber>
+        <versionNumber>53</versionNumber>
     </contextDefinitionVersions>
     <contextTtl>10</contextTtl>
     <hasSystemTags>false</hasSystemTags>
@@ -2285,6 +2360,6 @@
     <isProtected>false</isProtected>
     <isTransformationEnabled>false</isTransformationEnabled>
     <masterLabel>ContractsContextDefinitionAuto</masterLabel>
-    <releaseVersion>262.14.28</releaseVersion>
+    <releaseVersion>264.7.7</releaseVersion>
     <title>ContractsContextDefinitionAuto</title>
 </ContextDefinition>
