@@ -1,34 +1,13 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <Package xmlns="http://soap.sforce.com/2006/04/metadata">
 	<types>
-		<members>ProductDiscoveryContextAuto</members>
-		<members>RatingDiscoveryContextAuto</members>
-		<name>ContextDefinition</name>
+		<members>Quote.Approved_Tier_CFO</members>
+		<members>Quote.Set_Approval_Status_Approved</members>
+		<members>Quote.Set_Approval_Status_Approved2</members>
+		<members>Quote.Set_Approval_Status_Rejected</members>
+		<members>Quote.Set_Approved_Tier</members>
+		<members>Quote.Set_Approved_Tier2</members>
+		<name>WorkflowFieldUpdate</name>
 	</types>
-	<types>
-		<members>Default_Rating_Discovery_Procedure_Auto</members>
-		<members>Product_Discovery_Pricing_Procedure_Auto</members>
-		<name>ExpressionSetDefinition</name>
-	</types>
-	<types>
-		<members>Default_Rating_Discovery_Procedure_Auto_V1</members>
-		<members>Product_Discovery_Pricing_Procedure_Auto_V1</members>
-		<name>ExpressionSetDefinitionVersion</name>
-	</types>
-	<types>
-		<members>System_Admins</members>
-		<name>Group</name>
-	</types>
-    <types>
-        <members>*</members>
-        <name>ExpressionSetDefinition</name>
-    </types>
-
-    <!-- TRIM: only present if you built decision tables -->
-    <types>
-        <members>*</members>
-        <name>DecisionTable</name>
-    </types>
-
-	<version>67.0</version>
+	<version>68.0</version>
 </Package>
