@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<WebLink xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Deca6LjY00000001IfUAI</fullName>
+    <availability>online</availability>
+    <displayType>button</displayType>
+    <encodingKey>UTF-8</encodingKey>
+    <linkType>url</linkType>
+    <masterLabel>Send Contract</masterLabel>
+    <openType>replace</openType>
+    <protected>false</protected>
+    <url>{!URLFOR($Site.BaseUrl + &apos;/apex/dfsle__sending&apos;, null, [sId = Contract.Id, sendingExperience = &apos;null&apos;, isEmbedded = false, templateId = &apos;a6LjY00000001IfUAI&apos;, recordId = Contract.Id, title = &apos;Send Contract&apos;])}</url>
+</WebLink>
